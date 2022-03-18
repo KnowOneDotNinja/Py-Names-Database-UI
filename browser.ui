@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.2">
+  <object class="ttk.Frame" id="root">
+    <property name="height">400</property>
+    <property name="padding">5</property>
+    <property name="width">400</property>
+    <layout manager="grid">
+      <property name="column">0</property>
+      <property name="row">0</property>
+      <property name="sticky">nsew</property>
+    </layout>
+    <containerlayout manager="grid">
+      <property name="propagate">False</property>
+      <property type="col" id="0" name="weight">1</property>
+      <property type="row" id="1" name="weight">1</property>
+    </containerlayout>
+    <child>
+      <object class="ttk.Frame" id="control_frame">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="pady">5</property>
+          <property name="row">0</property>
+          <property name="sticky">n</property>
+        </layout>
+        <containerlayout manager="grid">
+          <property name="anchor">n</property>
+          <property type="col" id="0" name="pad">20</property>
+          <property type="col" id="0" name="weight">1</property>
+          <property type="row" id="0" name="weight">1</property>
+        </containerlayout>
+        <child>
+          <object class="ttk.Combobox" id="gender_combo">
+            <property name="exportselection">true</property>
+            <property name="state">readonly</property>
+            <property name="validate">all</property>
+            <bind sequence="&lt;&lt;ComboboxSelected&gt;&gt;" handler="gender_selected" add="" />
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="row">0</property>
+              <property name="sticky">w</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Combobox" id="year_combo">
+            <property name="state">readonly</property>
+            <bind sequence="&lt;&lt;ComboboxSelected&gt;&gt;" handler="year_selected" add="" />
+            <layout manager="grid">
+              <property name="column">1</property>
+              <property name="row">0</property>
+              <property name="sticky">w</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="search_button">
+            <property name="command" type="command" cbtype="simple">start_search</property>
+            <property name="state">normal</property>
+            <property name="takefocus">false</property>
+            <property name="text" translatable="yes">Get top 25</property>
+            <layout manager="grid">
+              <property name="column">3</property>
+              <property name="padx">15 0</property>
+              <property name="row">0</property>
+              <property name="sticky">e</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="pygubu.builder.widgets.scrollbarhelper" id="scrollbarhelper1">
+        <property name="scrolltype">both</property>
+        <property name="usemousewheel">true</property>
+        <layout manager="grid">
+          <property name="column">0</property>
+          <property name="row">1</property>
+          <property name="sticky">nsew</property>
+        </layout>
+        <child>
+          <object class="ttk.Treeview" id="names_tree">
+            <property name="height">15</property>
+            <property name="selectmode">browse</property>
+            <property name="show">headings</property>
+            <layout manager="grid">
+              <property name="column">0</property>
+              <property name="row">0</property>
+              <property name="sticky">new</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
